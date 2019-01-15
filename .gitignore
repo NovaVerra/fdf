@@ -1,0 +1,7 @@
+fdf
+minilibx/*.o
+minilibx/*.a
+libft/*.o
+libft/*.a
+fdf.dSYM
+objs
