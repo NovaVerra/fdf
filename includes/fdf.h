@@ -58,7 +58,7 @@ typedef struct	s_line
 
 typedef struct	s_map
 {
-	int			imap;
+	int			**imap;
 	int			height;
 	int			width;
 	int			z_max;
@@ -103,5 +103,31 @@ typedef struct	s_mlx
 	t_cam		*cam;
 	t_mouse		*mouse;
 }				t_mlx;
+
+// main.c
+void			print_map(t_map **map);
+int				setup_map(t_file **file, t_map **map, char *path);
+
+// init.c
+t_file			*init_file(void);
+t_map			*init_map(void);
+
+// clean.c
+t_file			*clean_buf(t_file *file);
+t_file			*clean_cmap(t_file *file);
+t_file			*clean_file(t_file *file);
+
+
+// read.c
+int				copy_argv(t_file **file, char *path);
+int				get_row_col(t_file **file, t_map **map);
+int				read_whole_file(t_file **file);
+int				open_file(t_file **file);
+int				close_file(t_file **file);
+
+// map.c
+int				make_map(t_map **map);
+int				copy_to_map(t_file **file, t_map **map);
+void			find_min_max(t_map **map);
 
 #endif
