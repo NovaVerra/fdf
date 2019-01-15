@@ -16,10 +16,12 @@ int		main(int argc, char **argv)
 {
 	t_file	*file;
 	t_map	*map;
+	t_mlx	*mlx;
 
 	if (argc > 1)
 	{
 		setup_map(&file, &map, argv[1]);
+		setup_mlx(&map, &mlx);
 	}
 	else
 		perror("usage: ./fdf [input height map]\n");
@@ -37,6 +39,13 @@ int		setup_map(t_file **file, t_map **map, char *path)
 	find_min_max(map);
 	*file = clean_file(*file);
 	print_map(map);
+	return (0);
+}
+
+int		setup_mlx(t_map **map, t_mlx **mlx)
+{
+	*mlx = init_mlx();
+	(*mlx)->map = (*map);
 	return (0);
 }
 

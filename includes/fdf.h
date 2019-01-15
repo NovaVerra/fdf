@@ -105,18 +105,21 @@ typedef struct	s_mlx
 }				t_mlx;
 
 // main.c
-void			print_map(t_map **map);
 int				setup_map(t_file **file, t_map **map, char *path);
+int				setup_mlx(t_map **map, t_mlx **mlx);
+void			print_map(t_map **map);
 
 // init.c
 t_file			*init_file(void);
 t_map			*init_map(void);
+t_mlx			*init_mlx(void);
 
 // clean.c
 t_file			*clean_buf(t_file *file);
 t_file			*clean_cmap(t_file *file);
 t_file			*clean_file(t_file *file);
-
+t_mlx			*clean_mlx(t_mlx *mlx);
+t_image			*clean_image(t_mlx *mlx, t_image *image);
 
 // read.c
 int				copy_argv(t_file **file, char *path);
