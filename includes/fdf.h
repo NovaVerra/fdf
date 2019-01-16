@@ -150,4 +150,7 @@ int				lineclip(t_vect *p1, t_vect *p2);
 int				region(int x, int y);
 void			clip_xy(t_vect *v, t_vect *p1, t_vect *p2, int rout);
 
+// keyboard.c
+int				hook_keydown(int keycode, t_mlx *mlx);
+
 #endif

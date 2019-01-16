@@ -56,7 +56,7 @@ t_mlx	*init_mlx(void)
 		!(mlx->map = ft_memalloc(sizeof(t_map))) ||
 		!(mlx->cam = ft_memalloc(sizeof(t_cam))) ||
 		!(mlx->mouse = ft_memalloc(sizeof(t_mouse))) ||
-		!(mlx->image = ft_memalloc(sizeof(t_image))))
+		!(mlx->image = init_image(mlx)))
 		return (clean_mlx(mlx));
 	mlx->cam->x = 0.5;
 	mlx->cam->y = 0.5;
