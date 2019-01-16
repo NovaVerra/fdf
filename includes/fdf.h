@@ -153,4 +153,6 @@ void			clip_xy(t_vect *v, t_vect *p1, t_vect *p2, int rout);
 // keyboard.c
 int				hook_keydown(int keycode, t_mlx *mlx);
 
+// color.c
+int				clerp(int c1, int c2, double p);
 #endif
