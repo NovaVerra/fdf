@@ -105,8 +105,8 @@ typedef struct	s_mlx
 }				t_mlx;
 
 // main.c
-int				setup_map(t_file **file, t_map **map, char *path);
-int				setup_mlx(t_map **map, t_mlx **mlx);
+void			setup_map(t_file **file, t_map **map, char *path);
+void			setup_mlx(t_map **map, t_mlx **mlx);
 void			print_map(t_map **map);
 
 // init.c

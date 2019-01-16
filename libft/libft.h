@@ -34,7 +34,7 @@ void				ft_lstrev(t_list **alst);
 size_t				ft_lstcount(t_list *lst);
 size_t				ft_getwordcount(char *str, char tgt);
 int					ft_lerpi(int first, int second, double p);
-double				ft_ilerp(double val, double first, double second);
+double				ft_ilerp(double point, double min, double max);
 int					ft_abs(int i);
 int					read_to_line(int fd, char **line);
 int					get_next_line(const int fd, char **line);

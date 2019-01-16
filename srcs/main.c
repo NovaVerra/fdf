@@ -28,7 +28,7 @@ int		main(int argc, char **argv)
 	return (0);
 }
 
-int		setup_map(t_file **file, t_map **map, char *path)
+void	setup_map(t_file **file, t_map **map, char *path)
 {
 	*file = init_file();
 	*map = init_map();
@@ -37,16 +37,14 @@ int		setup_map(t_file **file, t_map **map, char *path)
 	make_map(map);
 	copy_to_map(file, map);
 	find_min_max(map);
-	*file = clean_file(*file);
+	clean_file(*file);
 	print_map(map);
-	return (0);
 }
 
-int		setup_mlx(t_map **map, t_mlx **mlx)
+void	setup_mlx(t_map **map, t_mlx **mlx)
 {
 	*mlx = init_mlx();
 	(*mlx)->map = (*map);
-	return (0);
 }
 
 void	print_map(t_map **map)

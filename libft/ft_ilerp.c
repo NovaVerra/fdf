@@ -12,11 +12,11 @@
 
 #include "libft.h"
 
-double	ft_ilerp(double val, double first, double second)
+double	ft_ilerp(double point, double min, double max)
 {
-	if (val == first)
+	if (point == min)
 		return (0.0);
-	if (val == second)
+	if (point == max)
 		return (1.0);
-	return ((val - first) / (second - first));
+	return ((point - min) / (max - min));
 }
