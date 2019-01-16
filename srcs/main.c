@@ -45,6 +45,7 @@ void	setup_mlx(t_map **map, t_mlx **mlx)
 {
 	*mlx = init_mlx();
 	(*mlx)->map = (*map);
+	render(*mlx);
 }
 
 void	print_map(t_map **map)

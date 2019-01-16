@@ -30,6 +30,20 @@ t_map	*init_map(void)
 	return (map);
 }
 
+t_image	*init_image(t_mlx *mlx)
+{
+	t_image		*image;
+
+	if (!(image = ft_memalloc(sizeof(t_image))))
+		return (NULL);
+	if (!(image->img = mlx_new_image(mlx->mlx_ptr, WIN_WIDTH, WIN_HEIGHT)))
+		return (clean_image(mlx, image));
+	image->ptr = mlx_get_data_addr(image->img, &image->bpp, &image->line,
+			&image->endian);
+	image->bpp /= 8;
+	return (image);
+}
+
 t_mlx	*init_mlx(void)
 {
 	t_mlx	*mlx;
@@ -37,12 +51,12 @@ t_mlx	*init_mlx(void)
 	if (!(mlx = ft_memalloc(sizeof(t_mlx))))
 		return (NULL);
 	if (!(mlx->mlx_ptr = mlx_init()) ||
-		!(mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, WIN_WIDTH, WIN_HEIGHT, "llee's FdF")) ||
+		!(mlx->win_ptr = mlx_new_window(mlx->mlx_ptr,
+		WIN_WIDTH, WIN_HEIGHT, "llee's FdF")) ||
 		!(mlx->map = ft_memalloc(sizeof(t_map))) ||
 		!(mlx->cam = ft_memalloc(sizeof(t_cam))) ||
 		!(mlx->mouse = ft_memalloc(sizeof(t_mouse))) ||
-		!(mlx->image = ft_memalloc(sizeof(t_image)))
-	)
+		!(mlx->image = ft_memalloc(sizeof(t_image))))
 		return (clean_mlx(mlx));
 	mlx->cam->x = 0.5;
 	mlx->cam->y = 0.5;
@@ -50,4 +64,13 @@ t_mlx	*init_mlx(void)
 	mlx->cam->offset_x = WIN_WIDTH / 2;
 	mlx->cam->offset_y = WIN_HEIGHT / 2;
 	return (mlx);
+}
+
+t_vect	*init_vect(void)
+{
+	t_vect	*vector;
+
+	if (!(vector = ft_memalloc(sizeof(t_vect))))
+		return (NULL);
+	return (vector);
 }

@@ -71,3 +71,20 @@ void	find_min_max(t_map **map)
 		i++;
 	}
 }
+
+t_vect	transform(int x, int y, t_map *map)
+{
+	t_vect	vect;
+
+	vect.x = x;
+	vect.y = y;
+	vect.z = map->imap[y][x];
+	return (vect);
+}
+
+void	set_pixel(t_image *image, int x, int y, int color)
+{
+	if (x < 0 || x >= WIN_WIDTH || y < 0 || y >= WIN_HEIGHT)
+		return ;
+	*(int *)(image->ptr + ((x + y * WIN_WIDTH) * image->bpp)) = color;
+}
