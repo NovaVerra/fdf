@@ -31,3 +31,33 @@ t_file	*clean_file(t_file *file)
 	ft_memdel((void **)&file);
 	return (NULL);
 }
+
+t_mlx	*clean_mlx(t_mlx *mlx)
+{
+	if (mlx->win_ptr != NULL)
+		mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
+	if (mlx->cam != NULL)
+		ft_memdel((void **)&mlx->cam);
+	if (mlx->mouse != NULL)
+		ft_memdel((void **)&mlx->mouse);
+	if (mlx->image != NULL)
+		clean_image(mlx, mlx->image);
+	ft_memdel((void **)&mlx);
+	return (NULL);
+}
+
+t_image	*clean_image(t_mlx *mlx, t_image *image)
+{
+	if (image != NULL)
+	{
+		if (image->img != NULL)
+			mlx_destroy_image(mlx->mlx_ptr, image->img);
+		ft_memdel((void **)&image);
+	}
+	return (NULL);
+}
+
+void	reset_image(t_image *image)
+{
+	ft_bzero(image->ptr, WIN_WIDTH * WIN_HEIGHT * image->bpp);
+}

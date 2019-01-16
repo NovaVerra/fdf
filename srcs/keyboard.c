@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ilerp.c                                         :+:      :+:    :+:   */
+/*   keyboard.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/03 11:02:04 by llee              #+#    #+#             */
-/*   Updated: 2019/01/03 11:02:22 by llee             ###   ########.fr       */
+/*   Created: 2019/01/16 14:40:26 by llee              #+#    #+#             */
+/*   Updated: 2019/01/16 14:40:32 by llee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/fdf.h"
 
-double	ft_ilerp(double point, double min, double max)
+int		hook_keydown(int keycode, t_mlx *mlx)
 {
-	if (point == min)
-		return (0.0);
-	if (point == max)
-		return (1.0);
-	return ((point - min) / (max - min));
+	(void)mlx;
+	if (keycode == 53)
+		exit(0);
+	else
+		printf("You pressed key value: '%d' on your keyboard!\n", keycode);
+	return (0);
 }
