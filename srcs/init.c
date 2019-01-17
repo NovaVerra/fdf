@@ -53,7 +53,6 @@ t_mlx	*init_mlx(void)
 	if (!(mlx->mlx_ptr = mlx_init()) ||
 		!(mlx->win_ptr = mlx_new_window(mlx->mlx_ptr,
 		WIN_WIDTH, WIN_HEIGHT, "llee's FdF")) ||
-		!(mlx->map = ft_memalloc(sizeof(t_map))) ||
 		!(mlx->cam = ft_memalloc(sizeof(t_cam))) ||
 		!(mlx->mouse = ft_memalloc(sizeof(t_mouse))) ||
 		!(mlx->image = init_image(mlx)))
