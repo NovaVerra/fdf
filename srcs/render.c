@@ -27,7 +27,7 @@ void	render(t_mlx *mlx)
 		y = 0;
 		while (y < map->height)
 		{
-			cur_vect = transform(x, y, map);
+			cur_vect = print_to_screen(transform(x, y, map), mlx);
 			if (x + 1 < map->width)
 				line(mlx, cur_vect, print_to_screen(transform(x + 1, y, map), mlx));
 			if (y + 1 < map->height)
@@ -103,7 +103,8 @@ int			line_process_point(t_mlx *mlx, t_line *line, t_vect *start, t_vect *end)
 	percent = (line->dx > line->dy ?
 			ft_ilerp((int)start->x, (int)line->start.x, (int)line->end.x)
 			: ft_ilerp((int)start->y, (int)line->start.y, (int)line->end.y));
-	set_pixel(mlx->image, (int)start->x, (int)start->y, 0xFFFFFF);
+	set_pixel(mlx->image, (int)start->x, (int)start->y, clerp(start->color,
+				end->color, percent));
 	line->err2 = line->err;
 	if (line->err2 > -line->dx)
 	{

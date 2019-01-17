@@ -50,7 +50,7 @@ t_image	*clean_image(t_mlx *mlx, t_image *image)
 {
 	if (image != NULL)
 	{
-		if (image->img != NULL)
+		if (mlx->image != NULL)
 			mlx_destroy_image(mlx->mlx_ptr, image->img);
 		ft_memdel((void **)&image);
 	}
