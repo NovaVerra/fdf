@@ -18,10 +18,11 @@ int		main(int argc, char **argv)
 	t_map	*map;
 	t_mlx	*mlx;
 
+	mlx = NULL;
 	if (argc > 1)
 	{
 		setup_map(&file, &map, argv[1]);
-		setup_mlx(&map, &mlx);
+		setup_mlx(map, mlx);
 	}
 	else
 		perror("usage: ./fdf [input height map]\n");
@@ -41,16 +42,16 @@ void	setup_map(t_file **file, t_map **map, char *path)
 	print_map(map);
 }
 
-void	setup_mlx(t_map **map, t_mlx **mlx)
+void	setup_mlx(t_map *map, t_mlx *mlx)
 {
-	*mlx = init_mlx();
-	(*mlx)->map = (*map);
-	render(*mlx);
-	mlx_key_hook((*mlx)->win_ptr, hook_keydown, mlx);
-	mlx_hook((*mlx)->win_ptr, 4, 0, hook_mousedown, mlx);
-	mlx_hook((*mlx)->win_ptr, 5, 0, hook_mouseup, mlx);
-	mlx_hook((*mlx)->win_ptr, 6, 0, hook_mousemove, mlx);
-	mlx_loop((*mlx)->mlx_ptr);
+	mlx = init_mlx();
+	mlx->map = map;
+	render(mlx);
+	mlx_key_hook(mlx->win_ptr, hook_keydown, mlx);
+	mlx_hook(mlx->win_ptr, 4, 0, hook_mousedown, mlx);
+	mlx_hook(mlx->win_ptr, 5, 0, hook_mouseup, mlx);
+	mlx_hook(mlx->win_ptr, 6, 0, hook_mousemove, mlx);
+	mlx_loop(mlx->mlx_ptr);
 }
 
 void	print_map(t_map **map)
