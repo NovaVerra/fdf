@@ -37,7 +37,6 @@ void	render(t_mlx *mlx)
 		x++;
 	}
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->image->img, 0, 0);
-	ft_memdel((void **)&map);
 }
 
 t_vect	print_to_screen(t_vect vect, t_mlx *mlx)
