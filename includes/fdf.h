@@ -106,7 +106,7 @@ typedef struct	s_mlx
 
 // main.c
 void			setup_map(t_file **file, t_map **map, char *path);
-void			setup_mlx(t_map **map, t_mlx **mlx);
+void			setup_mlx(t_map *map, t_mlx *mlx);
 void			print_map(t_map **map);
 
 // init.c
@@ -150,10 +150,8 @@ int				lineclip(t_vect *p1, t_vect *p2);
 int				region(int x, int y);
 void			clip_xy(t_vect *v, t_vect *p1, t_vect *p2, int rout);
 
-// keyboard.c
+// input.c
 int				hook_keydown(int keycode, t_mlx *mlx);
-
-// mouse.c
 int				hook_mousedown(int button, int x, int y, t_mlx *mlx);
 int				hook_mouseup(int button, int x, int y, t_mlx *mlx);
 int				hook_mousemove(int x, int y, t_mlx *mlx);

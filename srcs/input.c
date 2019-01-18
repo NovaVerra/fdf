@@ -1,16 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mouse.c                                            :+:      :+:    :+:   */
+/*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/17 14:48:40 by llee              #+#    #+#             */
-/*   Updated: 2019/01/17 14:48:51 by llee             ###   ########.fr       */
+/*   Created: 2019/01/17 16:56:58 by llee              #+#    #+#             */
+/*   Updated: 2019/01/17 16:57:08 by llee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
+
+int		hook_keydown(int keycode, t_mlx *mlx)
+{
+	(void)mlx;
+	if (keycode == 53)
+		exit(0);
+	else
+		printf("You pressed key value: '%d' on your keyboard!\n", keycode);
+	return (0);
+}
 
 int		hook_mousedown(int button, int x, int y, t_mlx *mlx)
 {
