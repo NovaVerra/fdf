@@ -12,26 +12,6 @@
 
 #include "../includes/fdf.h"
 
-// void		fill_colors(t_map *m)
-// {
-// 	t_vect	v;
-// 	t_vect	*cur;
-
-// 	v.y = 0;
-// 	while (v.y < m->height)
-// 	{
-// 		v.x = 0;
-// 		while (v.x < m->width)
-// 		{
-// 			cur = m->vectors[(int)v.y * m->width + (int)v.x];
-// 			cur->color = clerp(0xFF00FF, 0xFFFFFF, ft_ilerp(cur->z,
-// 				m->z_min, m->z_max));
-// 			v.x++;
-// 		}
-// 		v.y++;
-// 	}
-// }
-
 int			clerp(int c1, int c2, double p)
 {
 	int r;

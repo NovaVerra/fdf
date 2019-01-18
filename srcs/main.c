@@ -47,10 +47,10 @@ void	setup_mlx(t_map **map, t_mlx **mlx)
 	(*mlx)->map = (*map);
 	render(*mlx);
 	mlx_key_hook((*mlx)->win_ptr, hook_keydown, mlx);
-	mlx_loop((*mlx)->mlx_ptr);
 	mlx_hook((*mlx)->win_ptr, 4, 0, hook_mousedown, mlx);
 	mlx_hook((*mlx)->win_ptr, 5, 0, hook_mouseup, mlx);
 	mlx_hook((*mlx)->win_ptr, 6, 0, hook_mousemove, mlx);
+	mlx_loop((*mlx)->mlx_ptr);
 }
 
 void	print_map(t_map **map)
