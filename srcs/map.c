@@ -32,8 +32,11 @@ int		copy_to_map(t_file **file, t_map **map)
 
 	i = -1;
 	while (++i < (*map)->width)
+	{
 		(*map)->imap[0][i] = ft_atoi((*file)->cmap[i]);
-	clean_cmap(*file);
+		free((*file)->cmap[i]);
+	}
+	free((*file)->cmap);
 	open_file(file);
 	i = 1;
 	while (i < (*map)->height)
@@ -44,8 +47,10 @@ int		copy_to_map(t_file **file, t_map **map)
 		while (j < (*map)->width)
 		{
 			(*map)->imap[i][j] = ft_atoi((*file)->cmap[j]);
+			free((*file)->cmap[j]);
 			j++;
 		}
+		free((*file)->cmap);
 		i++;
 	}
 	return (close_file(file));
