@@ -12,13 +12,26 @@
 
 #include "../includes/fdf.h"
 
+void	zoom_in(t_mlx *mlx)
+{
+	mlx->cam->scale += 8;
+	render(mlx);
+}
+
+void	zoom_out(t_mlx *mlx)
+{
+	mlx->cam->scale -= 8;
+	render(mlx);
+}
 int		hook_keydown(int keycode, t_mlx *mlx)
 {
 	(void)mlx;
 	if (keycode == 53)
 		exit(0);
-	else
-		printf("You pressed key value: '%d' on your keyboard!\n", keycode);
+	if (keycode == 69)
+		zoom_in(mlx);
+	if (keycode == 78)
+		zoom_out(mlx);
 	return (0);
 }
 
