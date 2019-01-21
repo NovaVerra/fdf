@@ -39,7 +39,6 @@ void	setup_map(t_file **file, t_map **map, char *path)
 	copy_to_map(file, map);
 	find_min_max(map);
 	clean_file(*file);
-	print_map(map);
 }
 
 void	setup_mlx(t_map *map, t_mlx *mlx)
@@ -52,23 +51,4 @@ void	setup_mlx(t_map *map, t_mlx *mlx)
 	mlx_hook(mlx->win_ptr, 5, 0, hook_mouseup, mlx);
 	mlx_hook(mlx->win_ptr, 6, 0, hook_mousemove, mlx);
 	mlx_loop(mlx->mlx_ptr);
-}
-
-void	print_map(t_map **map)
-{
-	int i;
-	int j;
-
-	i = 0;
-	while (i < (*map)->height)
-	{
-		j = 0;
-		while (j < (*map)->width)
-		{
-			printf("%d ", (*map)->imap[i][j]);
-			j++;
-		}
-		printf("\n");
-		i++;
-	}
 }
