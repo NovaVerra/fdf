@@ -17,8 +17,14 @@ int		hook_keydown(int keycode, t_mlx *mlx)
 	(void)mlx;
 	if (keycode == 53)
 		exit(0);
-	else
-		printf("You pressed key value: '%d' on your keyboard!\n", keycode);
+	if (keycode == 69 || keycode == 78)
+		zoom(mlx, keycode);
+	if (keycode >= 123 && keycode <= 126)
+		shift(mlx, keycode);
+	if ((keycode >= 13 && keycode <= 23) || keycode == 26)
+		color(mlx, keycode);
+	if (keycode == 15)
+		reset(mlx);
 	return (0);
 }
 
@@ -27,6 +33,8 @@ int		hook_mousedown(int button, int x, int y, t_mlx *mlx)
 	(void)x;
 	if (y < 0)
 		return (0);
+	if (button == 4 || button == 5)
+		zoom(mlx, button);
 	mlx->mouse->isdown |= 1 << button;
 	return (0);
 }

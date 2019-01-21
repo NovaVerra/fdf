@@ -22,6 +22,8 @@ int		make_map(t_map **map)
 	while (++i < (*map)->height)
 		if (!((*map)->imap[i] = (int *)malloc(sizeof(int) * ((*map)->width))))
 			return (-1);
+	(*map)->c_max = 0xFFFFFF;
+	(*map)->c_min = 0xFF00FF;
 	return (0);
 }
 
@@ -82,7 +84,7 @@ t_vect	transform(int x, int y, t_map *map)
 	vect.x = x;
 	vect.y = y;
 	vect.z = map->imap[y][x];
-	vect.color = clerp(0xFF00FF, 0xFFFFFF, ft_ilerp(vect.z,
+	vect.color = clerp(map->c_min, map->c_max, ft_ilerp(vect.z,
 				map->z_min, map->z_max));
 	return (vect);
 }

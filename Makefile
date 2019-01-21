@@ -18,8 +18,8 @@ CC = gcc
 FLAGS = -Wall -Wextra -Werror -g
 
 # sources, objects, and header
-SRCS = ./srcs/main.c ./srcs/init.c ./srcs/clean.c ./srcs/read.c ./srcs/map.c ./srcs/render.c ./srcs/window.c ./srcs/input.c ./srcs/color.c
-OBJS = ./objs/main.o ./objs/init.o ./objs/clean.o ./objs/read.o ./objs/map.o ./objs/render.o ./objs/window.o ./objs/input.o ./objs/color.o
+SRCS = ./srcs/main.c ./srcs/init.c ./srcs/clean.c ./srcs/read.c ./srcs/map.c ./srcs/render.c ./srcs/window.c ./srcs/input.c ./srcs/input_2.c ./srcs/color.c
+OBJS = ./objs/main.o ./objs/init.o ./objs/clean.o ./objs/read.o ./objs/map.o ./objs/render.o ./objs/window.o ./objs/input.o ./objs/input_2.o ./objs/color.o
 SRCDIR = ./srcs/
 OBJDIR = ./objs/
 INCDIR = ./includes/
