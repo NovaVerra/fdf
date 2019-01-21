@@ -63,6 +63,8 @@ typedef struct	s_map
 	int			width;
 	int			z_max;
 	int			z_min;
+	int			c_min;
+	int			c_max;
 }				t_map;
 
 typedef struct	s_image
@@ -148,7 +150,11 @@ int				hook_keydown(int keycode, t_mlx *mlx);
 int				hook_mousedown(int button, int x, int y, t_mlx *mlx);
 int				hook_mouseup(int button, int x, int y, t_mlx *mlx);
 int				hook_mousemove(int x, int y, t_mlx *mlx);
-void			zoom_in(t_mlx *mlx);
+
+void			zoom(t_mlx *mlx, int key);
+void			shift(t_mlx *mlx, int key);
+void			color(t_mlx *mlx, int key);
+void			reset(t_mlx *mlx);
 
 int				clerp(int c1, int c2, double p);
 #endif
