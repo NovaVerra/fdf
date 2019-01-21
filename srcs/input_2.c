@@ -60,5 +60,6 @@ void	reset(t_mlx *mlx)
 	mlx->cam->scale = 32;
 	mlx->cam->offset_x = WIN_WIDTH / 2;
 	mlx->cam->offset_y = WIN_HEIGHT / 2;
+	mlx->map->c_min = 0xFF00FF;
 	render(mlx);
 }
