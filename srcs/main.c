@@ -38,7 +38,6 @@ void	setup_map(t_file **file, t_map **map, char *path)
 	make_map(map);
 	copy_to_map(file, map);
 	find_min_max(map);
-	clean_file(*file);
 }
 
 void	setup_mlx(t_map *map, t_mlx *mlx)
@@ -51,4 +50,10 @@ void	setup_mlx(t_map *map, t_mlx *mlx)
 	mlx_hook(mlx->win_ptr, 5, 0, hook_mouseup, mlx);
 	mlx_hook(mlx->win_ptr, 6, 0, hook_mousemove, mlx);
 	mlx_loop(mlx->mlx_ptr);
+}
+
+void	copy_to_map_2(t_file **file, t_map **map, int i)
+{
+	(*map)->imap[0][i] = ft_atoi((*file)->cmap[i]);
+	free((*file)->cmap[i]);
 }

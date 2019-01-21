@@ -33,25 +33,23 @@ int		copy_to_map(t_file **file, t_map **map)
 	i = -1;
 	while (++i < (*map)->width)
 	{
-		(*map)->imap[0][i] = ft_atoi((*file)->cmap[i]);
-		free((*file)->cmap[i]);
+		copy_to_map_2(file, map, i);
 	}
 	free((*file)->cmap);
 	open_file(file);
-	i = 1;
-	while (i < (*map)->height)
+	i = 0;
+	while (++i < (*map)->height)
 	{
 		get_next_line((*file)->fd, &(*file)->buf);
 		(*file)->cmap = ft_strsplit((*file)->buf, ' ');
-		j = 0;
-		while (j < (*map)->width)
+		free((*file)->buf);
+		j = -1;
+		while (++j < (*map)->width)
 		{
 			(*map)->imap[i][j] = ft_atoi((*file)->cmap[j]);
 			free((*file)->cmap[j]);
-			j++;
 		}
 		free((*file)->cmap);
-		i++;
 	}
 	return (close_file(file));
 }
