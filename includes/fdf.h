@@ -104,58 +104,50 @@ typedef struct	s_mlx
 	t_mouse		*mouse;
 }				t_mlx;
 
-// main.c
 void			setup_map(t_file **file, t_map **map, char *path);
 void			setup_mlx(t_map *map, t_mlx *mlx);
 void			copy_to_map_2(t_file **file, t_map **map, int i);
 
-// init.c
 t_file			*init_file(void);
 t_map			*init_map(void);
 t_mlx			*init_mlx(void);
 t_vect			*init_vect(void);
 t_image			*init_image(t_mlx *mlx);
 
-// clean.c
 t_file			*clean_buf(t_file *file);
 t_file			*clean_cmap(t_file *file);
 t_file			*clean_file(t_file *file);
 t_mlx			*clean_mlx(t_mlx *mlx);
 t_image			*clean_image(t_mlx *mlx, t_image *image);
 
-// read.c
 int				copy_argv(t_file **file, char *path);
 int				get_row_col(t_file **file, t_map **map);
 int				read_whole_file(t_file **file);
 int				open_file(t_file **file);
 int				close_file(t_file **file);
 
-// map.c
 int				make_map(t_map **map);
 int				copy_to_map(t_file **file, t_map **map);
 void			find_min_max(t_map **map);
 t_vect			transform(int x, int y, t_map *map);
 void			set_pixel(t_image *image, int x, int y, int color);
 
-// render.c
 void			render(t_mlx *mlx);
 t_vect			print_to_screen(t_vect vect, t_mlx *mlx);
 t_vect			rotate(t_vect cur, t_cam *cam);
 void			line(t_mlx *mlx, t_vect start, t_vect end);
-int				line_process_point(t_mlx *mlx, t_line *line, t_vect *start, t_vect *end);
+int				line_process_point(t_mlx *mlx, t_line *line,
+				t_vect *start, t_vect *end);
 
-// window.c
 int				lineclip(t_vect *p1, t_vect *p2);
 int				region(int x, int y);
 void			clip_xy(t_vect *v, t_vect *p1, t_vect *p2, int rout);
 void			reset_image(t_image *image);
 
-// input.c
 int				hook_keydown(int keycode, t_mlx *mlx);
 int				hook_mousedown(int button, int x, int y, t_mlx *mlx);
 int				hook_mouseup(int button, int x, int y, t_mlx *mlx);
 int				hook_mousemove(int x, int y, t_mlx *mlx);
 
-// color.c
 int				clerp(int c1, int c2, double p);
 #endif
