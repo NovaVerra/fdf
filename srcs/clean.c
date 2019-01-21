@@ -56,8 +56,3 @@ t_image	*clean_image(t_mlx *mlx, t_image *image)
 	}
 	return (NULL);
 }
-
-void	reset_image(t_image *image)
-{
-	ft_bzero(image->ptr, WIN_WIDTH * WIN_HEIGHT * image->bpp);
-}

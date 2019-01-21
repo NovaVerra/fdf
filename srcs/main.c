@@ -38,8 +38,6 @@ void	setup_map(t_file **file, t_map **map, char *path)
 	make_map(map);
 	copy_to_map(file, map);
 	find_min_max(map);
-	clean_file(*file);
-	print_map(map);
 }
 
 void	setup_mlx(t_map *map, t_mlx *mlx)
@@ -54,21 +52,8 @@ void	setup_mlx(t_map *map, t_mlx *mlx)
 	mlx_loop(mlx->mlx_ptr);
 }
 
-void	print_map(t_map **map)
+void	copy_to_map_2(t_file **file, t_map **map, int i)
 {
-	int i;
-	int j;
-
-	i = 0;
-	while (i < (*map)->height)
-	{
-		j = 0;
-		while (j < (*map)->width)
-		{
-			printf("%d ", (*map)->imap[i][j]);
-			j++;
-		}
-		printf("\n");
-		i++;
-	}
+	(*map)->imap[0][i] = ft_atoi((*file)->cmap[i]);
+	free((*file)->cmap[i]);
 }

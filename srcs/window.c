@@ -32,23 +32,27 @@ void	clip_xy(t_vect *vect, t_vect *start, t_vect *end, int rout)
 {
 	if (rout & 1)
 	{
-		vect->x = start->x + (end->x - start->x) * (WIN_HEIGHT - start->y) / (end->y - start->y);
+		vect->x = start->x + (end->x - start->x) *
+		(WIN_HEIGHT - start->y) / (end->y - start->y);
 		vect->y = WIN_HEIGHT - 1;
 	}
 	else if (rout & 2)
 	{
-		vect->x = start->x + (end->x - start->x) * -start->y / (end->y - start->y);
+		vect->x = start->x + (end->x - start->x) * -start->y /
+		(end->y - start->y);
 		vect->y = 0;
 	}
 	else if (rout & 4)
 	{
 		vect->x = WIN_WIDTH - 1;
-		vect->y = start->y + (end->y - start->y) * (WIN_WIDTH - start->x) / (end->x - start->x);
+		vect->y = start->y + (end->y - start->y) *
+		(WIN_WIDTH - start->x) / (end->x - start->x);
 	}
 	else
 	{
 		vect->x = 0;
-		vect->y = start->y + (end->y - start->y) * -start->x / (end->x - start->x);
+		vect->y = start->y + (end->y - start->y) * -start->x /
+		(end->x - start->x);
 	}
 }
 
@@ -79,4 +83,9 @@ int		lineclip(t_vect *start, t_vect *end)
 		}
 	}
 	return (!(r1 | r2));
+}
+
+void	reset_image(t_image *image)
+{
+	ft_bzero(image->ptr, WIN_WIDTH * WIN_HEIGHT * image->bpp);
 }

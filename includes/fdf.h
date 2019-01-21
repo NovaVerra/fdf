@@ -107,7 +107,7 @@ typedef struct	s_mlx
 // main.c
 void			setup_map(t_file **file, t_map **map, char *path);
 void			setup_mlx(t_map *map, t_mlx *mlx);
-void			print_map(t_map **map);
+void			copy_to_map_2(t_file **file, t_map **map, int i);
 
 // init.c
 t_file			*init_file(void);
@@ -122,7 +122,6 @@ t_file			*clean_cmap(t_file *file);
 t_file			*clean_file(t_file *file);
 t_mlx			*clean_mlx(t_mlx *mlx);
 t_image			*clean_image(t_mlx *mlx, t_image *image);
-void			reset_image(t_image *image);
 
 // read.c
 int				copy_argv(t_file **file, char *path);
@@ -149,6 +148,7 @@ int				line_process_point(t_mlx *mlx, t_line *line, t_vect *start, t_vect *end);
 int				lineclip(t_vect *p1, t_vect *p2);
 int				region(int x, int y);
 void			clip_xy(t_vect *v, t_vect *p1, t_vect *p2, int rout);
+void			reset_image(t_image *image);
 
 // input.c
 int				hook_keydown(int keycode, t_mlx *mlx);

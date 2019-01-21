@@ -12,7 +12,7 @@
 
 #include "../includes/fdf.h"
 
-void	render(t_mlx *mlx)
+void		render(t_mlx *mlx)
 {
 	int			x;
 	int			y;
@@ -29,18 +29,19 @@ void	render(t_mlx *mlx)
 		{
 			cur_vect = print_to_screen(transform(x, y, map), mlx);
 			if (x + 1 < map->width)
-				line(mlx, cur_vect, print_to_screen(transform(x + 1, y, map), mlx));
+				line(mlx, cur_vect,
+				print_to_screen(transform(x + 1, y, map), mlx));
 			if (y + 1 < map->height)
-				line(mlx, cur_vect, print_to_screen(transform(x, y + 1, map), mlx));
+				line(mlx, cur_vect,
+				print_to_screen(transform(x, y + 1, map), mlx));
 			y++;
 		}
 		x++;
 	}
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->image->img, 0, 0);
-	// ft_memdel((void **)&mlx->image);
 }
 
-t_vect	print_to_screen(t_vect vect, t_mlx *mlx)
+t_vect		print_to_screen(t_vect vect, t_mlx *mlx)
 {
 	vect.x -= (double)(mlx->map->width - 1) / 2.0f;
 	vect.y -= (double)(mlx->map->height - 1) / 2.0f;
@@ -53,7 +54,7 @@ t_vect	print_to_screen(t_vect vect, t_mlx *mlx)
 	return (vect);
 }
 
-t_vect	rotate(t_vect cur, t_cam *cam)
+t_vect		rotate(t_vect cur, t_cam *cam)
 {
 	t_vect		vec;
 	double		x;
@@ -74,7 +75,7 @@ t_vect	rotate(t_vect cur, t_cam *cam)
 
 void		line(t_mlx *mlx, t_vect start, t_vect end)
 {
-	t_line	line;
+	t_line		line;
 
 	start.x = (int)start.x;
 	end.x = (int)end.x;
@@ -94,12 +95,14 @@ void		line(t_mlx *mlx, t_vect start, t_vect end)
 			break ;
 }
 
-int			line_process_point(t_mlx *mlx, t_line *line, t_vect *start, t_vect *end)
+int			line_process_point(t_mlx *mlx, t_line *line,
+			t_vect *start, t_vect *end)
 {
-	double	percent;
+	double		percent;
 
-	if (start->x < 0 || start->x >= WIN_WIDTH || start->y < 0 || start->y >= WIN_HEIGHT
-		|| end->x < 0 || end->x >= WIN_WIDTH || end->y < 0 || end->y >= WIN_HEIGHT)
+	if (start->x < 0 || start->x >= WIN_WIDTH || start->y < 0 ||
+	start->y >= WIN_HEIGHT || end->x < 0 || end->x >= WIN_WIDTH ||
+	end->y < 0 || end->y >= WIN_HEIGHT)
 		return (1);
 	percent = (line->dx > line->dy ?
 			ft_ilerp((int)start->x, (int)line->start.x, (int)line->end.x)

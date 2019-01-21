@@ -15,7 +15,7 @@ NAME = fdf
 
 # compiler
 CC = gcc
-FLAGS = -Wall -Wextra -Werror -fsanitize=address -g
+FLAGS = -Wall -Wextra -Werror -g
 
 # sources, objects, and header
 SRCS = ./srcs/main.c ./srcs/init.c ./srcs/clean.c ./srcs/read.c ./srcs/map.c ./srcs/render.c ./srcs/window.c ./srcs/input.c ./srcs/color.c
