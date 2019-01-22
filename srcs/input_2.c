@@ -55,8 +55,8 @@ void	color(t_mlx *mlx, int key)
 
 void	reset(t_mlx *mlx)
 {
-	mlx->cam->x = 0.5;
-	mlx->cam->y = 0.5;
+	mlx->cam->x = 0.0;
+	mlx->cam->y = 0.0;
 	mlx->cam->scale = 32;
 	mlx->cam->offset_x = WIN_WIDTH / 2;
 	mlx->cam->offset_y = WIN_HEIGHT / 2;

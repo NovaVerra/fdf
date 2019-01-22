@@ -27,21 +27,20 @@ void		render(t_mlx *mlx)
 		y = 0;
 		while (y < map->height)
 		{
-			cur_vect = print_to_screen(transform(x, y, map), mlx);
+			cur_vect = pts(transform(x, y, map), mlx);
 			if (x + 1 < map->width)
-				line(mlx, cur_vect,
-				print_to_screen(transform(x + 1, y, map), mlx));
+				line(mlx, cur_vect, pts(transform(x + 1, y, map), mlx));
 			if (y + 1 < map->height)
-				line(mlx, cur_vect,
-				print_to_screen(transform(x, y + 1, map), mlx));
+				line(mlx, cur_vect, pts(transform(x, y + 1, map), mlx));
 			y++;
 		}
 		x++;
 	}
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->image->img, 0, 0);
+	message(mlx);
 }
 
-t_vect		print_to_screen(t_vect vect, t_mlx *mlx)
+t_vect		pts(t_vect vect, t_mlx *mlx)
 {
 	vect.x -= (double)(mlx->map->width - 1) / 2.0f;
 	vect.y -= (double)(mlx->map->height - 1) / 2.0f;
