@@ -135,7 +135,7 @@ t_vect			transform(int x, int y, t_map *map);
 void			set_pixel(t_image *image, int x, int y, int color);
 
 void			render(t_mlx *mlx);
-t_vect			print_to_screen(t_vect vect, t_mlx *mlx);
+t_vect			pts(t_vect vect, t_mlx *mlx);
 t_vect			rotate(t_vect cur, t_cam *cam);
 void			line(t_mlx *mlx, t_vect start, t_vect end);
 int				line_process_point(t_mlx *mlx, t_line *line,
@@ -157,4 +157,7 @@ void			color(t_mlx *mlx, int key);
 void			reset(t_mlx *mlx);
 
 int				clerp(int c1, int c2, double p);
+void			message(t_mlx *mlx);
+void			message_2(t_mlx *mlx);
+
 #endif
