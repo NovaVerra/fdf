@@ -20,3 +20,7 @@ FdF's minilibx requires you to be on MacOSX
 $ make
 $ ./fdf test_maps/[insert any map]
 ```
+
+### Note
+Error handling on file content has not been implemented yet.
+E.g. a row with incorrect number of columns or vice versa (not a complete map)
