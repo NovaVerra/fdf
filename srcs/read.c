@@ -24,7 +24,8 @@ int		get_row_col(t_file **file, t_map **map)
 {
 	int	i;
 
-	open_file(file);
+	if (open_file(file) == -1)
+		return (-1);
 	read_whole_file(file);
 	i = -1;
 	while ((*file)->buf[++i])

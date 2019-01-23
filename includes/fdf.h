@@ -106,8 +106,8 @@ typedef struct	s_mlx
 	t_mouse		*mouse;
 }				t_mlx;
 
-void			setup_map(t_file **file, t_map **map, char *path);
-void			setup_mlx(t_map *map, t_mlx *mlx);
+int				setup_map(t_file **file, t_map **map, char *path);
+int				setup_mlx(t_map *map, t_mlx *mlx);
 void			copy_to_map_2(t_file **file, t_map **map, int i);
 
 t_file			*init_file(void);

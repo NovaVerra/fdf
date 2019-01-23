@@ -21,26 +21,30 @@ int		main(int argc, char **argv)
 	mlx = NULL;
 	if (argc > 1)
 	{
-		setup_map(&file, &map, argv[1]);
-		setup_mlx(map, mlx);
+		if (setup_map(&file, &map, argv[1]) != -1)
+			setup_mlx(map, mlx);
+		else
+			perror("error");
 	}
 	else
 		perror("usage: ./fdf [input height map]\n");
 	return (0);
 }
 
-void	setup_map(t_file **file, t_map **map, char *path)
+int		setup_map(t_file **file, t_map **map, char *path)
 {
 	*file = init_file();
 	*map = init_map();
 	copy_argv(file, path);
-	get_row_col(file, map);
+	if (get_row_col(file, map) == -1)
+		return (-1);
 	make_map(map);
 	copy_to_map(file, map);
 	find_min_max(map);
+	return (0);
 }
 
-void	setup_mlx(t_map *map, t_mlx *mlx)
+int		setup_mlx(t_map *map, t_mlx *mlx)
 {
 	mlx = init_mlx();
 	mlx->map = map;
@@ -50,6 +54,7 @@ void	setup_mlx(t_map *map, t_mlx *mlx)
 	mlx_hook(mlx->win_ptr, 5, 0, hook_mouseup, mlx);
 	mlx_hook(mlx->win_ptr, 6, 0, hook_mousemove, mlx);
 	mlx_loop(mlx->mlx_ptr);
+	return (0);
 }
 
 void	copy_to_map_2(t_file **file, t_map **map, int i)
