@@ -1,7 +1,5 @@
 # FdF
 
-[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
-
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 FdF is the first graphics project at School 42. It is a 3D wireframe renderer that reads numeric files.
